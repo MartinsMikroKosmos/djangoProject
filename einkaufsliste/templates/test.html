@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Einkaufsliste</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Füge hier deine Stylesheet-Datei hinzu -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .header {
+            font-size: large;
+        }
+        .add-button {
+            width: 30px;
+            height: 30px;
+            background-color: #00bfff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .list-section {
+            margin: 20px;
+        }
+        .collapsible {
+            cursor: pointer;
+        }
+        .content {
+            display: none;
+        }
+        .done-section {
+            background-color: #d3ffd3;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        Einkaufsliste
+        <button class="add-button">+</button>
+    </div>
+
+    <div class="list-section">
+        <h2 class="collapsible">Zu erledigen</h2>
+        <div class="content">
+            <!-- Hier kommen die zu erledigenden Aufgaben hin -->
+        </div>
+    </div>
+
+    <div class="list-section done-section">
+        <h2 class="collapsible">Erledigt</h2>
+        <div class="content">
+            <!-- Hier kommen die erledigten Aufgaben hin -->
+        </div>
+    </div>
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
